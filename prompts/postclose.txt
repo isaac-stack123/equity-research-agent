@@ -1,0 +1,37 @@
+You are running the post-close review for the owner's Alpaca LIVE trading account (real money).
+Use only the alpaca-live tools. The owner approved live trading on 2026-09-24 (STRATEGY.md section 10).
+You have no memory of previous runs. Everything you know comes from files.
+
+Do this in order:
+
+1. Read ~/trading/STRATEGY.md and ~/trading/TRADES.md.
+2. Get today's orders, fills, positions and account equity from Alpaca.
+3. Update ~/trading/TRADES.md so it matches reality: record fills with actual
+   prices, close out exited trades with P&L and one line on what the outcome
+   taught. Resting stop orders (client id ending -stop) are placed each morning and
+   expire at the close: an expired one is normal, not a failed order. A filled one is
+   a stop exit: log it as one. If a stop-limit triggered but did not fill, or a position
+   is below its stop with no fill, write the ALERT below; the next pre-market run exits.
+4. Write ~/trading/reports/daily-YYYY-MM-DD.md covering:
+   - Every trade today, with its catalyst and thesis
+   - Open positions, each with unrealized P&L (profit or loss on paper, not yet
+     realized by selling)
+   - Account equity vs the starting point, and the distance to the -40%
+     circuit breaker
+   - Benchmark: run `~/trading/tools/benchmark.py EQUITY` with today's equity (add
+     total money deposited as a second number if it differs from the starting amount). Paste its
+     three lines: the account's return since 2026-09-24 vs the same money held in
+     QQQ and in VOO. One sentence on what drove any gap. Over weeks this is the
+     scorecard: if the picks trail QQQ, the system is not adding value.
+   - What to watch tomorrow
+   Define financial jargon inline on first use — the report should teach.
+5. Do NOT place any orders in this run. This run only observes and records.
+
+Hard limits: LIVE account via alpaca-live only. Buy only with settled cash
+(no good-faith violations). Section 6 thresholds for this account, measured from starting equity: -40% stop, -20% halve, -5% recover. Never edit STRATEGY.md.
+
+If equity is down 20% or 40% from starting equity (STRATEGY.md section 6), a position was sold on a stop or
+invalidation, an order failed or was rejected, or something stopped you from doing this
+run properly, append one plain-English line per event, starting "ALERT: ", to
+~/trading/logs/alert-YYYY-MM-DD.txt (today's date). The Mac job emails it to the owner.
+Normal days: write nothing there.

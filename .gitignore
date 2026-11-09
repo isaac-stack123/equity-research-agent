@@ -1,0 +1,10 @@
+logs/
+*.env
+.env*
+__pycache__/
+.DS_Store
+
+# Live account records stay out of this public repo
+TRADES*.md
+reports/
+research/

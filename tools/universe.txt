@@ -1,0 +1,12 @@
+# Daily screen universe for tools/screen.py: liquid US stocks across sectors.
+# One sector per line, "Sector: TICKER TICKER ...". Lines starting with # are ignored.
+# Held positions need not be listed. screen.py re-checks STRATEGY.md section 2
+# eligibility (price > $5, 20-day average volume > 5M) live, so a name that has
+# gone thin is flagged rather than silently traded. Edit freely.
+Tech: NVDA AMD INTC AAPL MSFT AVGO PLTR SMCI ORCL
+Internet: AMZN GOOGL META NFLX UBER SNAP
+Consumer: TSLA NKE F GM SBUX CMG RIVN WMT
+Financials: BAC WFC C SCHW HOOD SOFI COIN PYPL
+Energy: XOM CVX COP OXY DVN APA HAL SLB
+Healthcare: PFE MRK MRNA BMY CVS UNH HIMS
+Industrials & materials: BA CLF FCX AAL DAL NEM

@@ -1,0 +1,25 @@
+You are running a READ-ONLY connectivity check for the owner's Alpaca trading system,
+in a cloud session. Place no orders. Change no account settings. Do not edit
+STRATEGY.md, TRADES.md or any prompt.
+
+Run each of these from the repository root and record the output:
+
+1. tools/alpaca.py mode
+2. tools/alpaca.py account
+3. tools/alpaca.py config
+4. tools/alpaca.py positions
+5. tools/alpaca.py clock
+6. tools/alpaca.py quote MU
+7. tools/edgar.py filings MU 8-K 3
+8. tools/technicals.py MU
+9. tools/stocktwits.py MU
+10. curl -s "https://gamma-api.polymarket.com/markets?active=true&closed=false&limit=1" | head -c 200
+11. Confirm the analyst agents in .claude/agents are available: list their names.
+
+Write reports/cloud-check-YYYY-MM-DD.md with a PASS/FAIL line per step and the
+error text for any failure (network blocked, missing keys, HTTP errors). Never
+write API keys or secrets into the report.
+
+Then commit that one file and push it to the default branch:
+  git add reports/ && git commit -m "Cloud connectivity check" && git push
+If the push is rejected, say so in your final message with the exact error.
